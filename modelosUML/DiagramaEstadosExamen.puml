@@ -1,0 +1,14 @@
+@startuml
+title Diagrama de Estados - Servicio Transporte Público
+
+[*] --> Inactivo
+
+Inactivo --> EnServicio : Inicia servicio
+EnServicio --> EnRuta : Asigna ruta a conductor
+EnRuta --> Parada : Llega 
+EnRuta --> Inactivo : Hay incidencia
+Parada --> EnRuta : Si hay otra parada
+Parada --> Inactivo : Última parada
+
+
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+title Sistema Transporte Público
+package "Sistema Transporte Público" {
+    class Persona{
+}
+    class Pasajeros{
+}
+    class Tarifas{
+}
+    class MétodosPago{
+}
+    class Abonos{
+}
+    class Conductor{
+}
+    class Vehículo{
+}
+    class Ruta{
+}
+    class Horarios{
+}
+    class Paradas{
+}
+    class Flota{
+}
+    class Servicio{
+}
+
+Pasajeros --|> Persona
+Conductor --|> Persona
+Pasajeros --> Tarifas : pagan
+MétodosPago --> Tarifas : se emplean
+Abonos --|> MétodosPago
+Conductor --> Vehículo : conduce
+Conductor--> Ruta : sigue
+Vehículo --> Incidencia : sufre
+Incidencia .. Pasajeros : afecta
+Conductor  --> Incidencia: reporta
+Pasajeros --> Vehículo: emplean
+Ruta --> Horarios : tiene
+Paradas -* Ruta  
+Vehículo-* Flota
+Servicio --> Ruta : ofrece 
+Servicio --> Flota : ofrece
+
+
+}
+
+@enduml

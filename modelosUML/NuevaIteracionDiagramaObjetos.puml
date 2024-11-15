@@ -1,0 +1,115 @@
+@startuml DiagramaDeObjetosActualizado
+
+hide circle
+hide empty members
+
+object Servicio_Diario {
+    ID: 1
+    Estadísticas: Generadas
+}
+
+object Ruta_1 {
+    ID: 1
+}
+
+object Horario {
+    "14:00 - 15:00"
+    "16:00 - 17:00"
+}
+
+object Parada_1 {
+    "Ubicación: Burgos"
+}
+
+object Parada_2 {
+    "Ubicación: España"
+}
+
+object Conductor_1 {
+    ID: 1234
+    Nombre: David
+}
+
+object Conductor_2 {
+    ID: 1235
+    Nombre: Ramon
+}
+
+object Vehículo_1 {
+    Tipo: Bus
+    Capacidad:10
+    ID: 1
+}
+
+object Vehículo_2 {
+    Tipo: Bus
+    Capacidad: 15
+    ID: 2
+}
+
+object Flota_1 {
+    Empresa: PEREZ
+}
+
+object Incidencia_1 {
+    Tipo: Accidente
+    Estado: Roto
+    Urgencia: Máxima
+}
+
+object Pasajero_1 {
+    Asiento: 12
+    Nombre: David
+}
+
+object Pasajero_2 {
+    Asiento: 4B
+    Nombre: Pepe
+}
+
+object Tarifa_1 {
+    Tipo: Diurna 1
+}
+
+object Tarifa_2 {
+    Tipo: Diurna 
+}
+
+object Abono_1 {
+    Método: Tarjeta
+    Cantidad: 10 viajes
+}
+
+object Abono_2 {
+    Método: Tarjeta
+    Cantidad: 5 viajes
+}
+
+object Estadística_1 {
+    TotalViajes: 100
+    Ingresos: "500$"
+    Incidencias: 2
+}
+
+Servicio_Diario --> Ruta_1 : "ofrece"
+Servicio_Diario --> Estadística_1 : "genera"
+Ruta_1 --> Parada_1 : "tiene"
+Ruta_1 --> Parada_2 : "tiene"
+Ruta_1 --> Horario : "tiene"
+Conductor_1 --> Ruta_1 : "sigue"
+Conductor_2 --> Ruta_1 : "sigue"
+Conductor_1 --> Vehículo_1 : "conduce"
+Conductor_2 --> Vehículo_2 : "conduce"
+Vehículo_1 --> Flota_1 : "usa"
+Vehículo_2 --> Flota_1 : "usa"
+Vehículo_1 --> Incidencia_1 : "sufre"
+Conductor_2 --> Incidencia_1 : "reporta"
+Incidencia_1 ..> Pasajero_1 : "afecta"
+Pasajero_1 --> Vehículo_1 : "usa"
+Pasajero_1 --> Tarifa_1 : "paga"
+Pasajero_2 --> Vehículo_2 : "usa"
+Pasajero_2 --> Tarifa_2 : "paga"
+Tarifa_1 --> Abono_1 : "se emplea para pagar"
+Tarifa_2 --> Abono_2 : "se emplea para pagar"
+
+@enduml

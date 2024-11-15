@@ -1,0 +1,74 @@
+@startuml
+title Sistema Transporte Público - Con Estadísticas
+
+package "Sistema Transporte Público" {
+    class Persona {
+    }
+
+    class Pasajero {
+    }
+
+    class Conductor {
+    }
+
+    class Tarifa {
+    }
+
+    class MetodoPago {
+    }
+
+    class Abono {
+    }
+
+    class Vehiculo {
+    }
+
+    class Ruta {
+    }
+
+    class Horario {
+    }
+
+    class Parada {
+    }
+
+    class Flota {
+    }
+
+    class Servicio {
+    }
+
+    class Incidencia {
+    }
+
+    class Estadistica {
+    
+    }
+
+    Persona <|-- Pasajero
+    Persona <|-- Conductor
+
+    Pasajero --> Tarifa : paga
+    MetodoPago --> Tarifa : aplica
+    Abono --|> MetodoPago
+
+    Conductor --> Vehiculo : opera
+    Conductor --> Ruta : sigue
+    Conductor --> Incidencia : reporta
+
+    Vehiculo --> Incidencia : puede tener
+    Incidencia .. Pasajero : impacta
+
+    Pasajero --> Vehiculo : utiliza
+    Ruta --> Horario : está definida por
+    Ruta --> Parada : incluye
+    Vehiculo --> Ruta : sigue
+
+    Vehiculo --> Flota : pertenece
+    Servicio --> Ruta : organiza
+    Servicio --> Flota : gestiona
+
+    Servicio --> Estadistica : genera
+}
+
+@enduml
