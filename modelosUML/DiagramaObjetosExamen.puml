@@ -1,0 +1,85 @@
+@startuml DiagramaDeObjetosOriginal
+
+hide circle
+hide empty members
+
+object Servicio_Diario {
+    ID: 1
+}
+
+object Ruta_1 {
+    ID: 1
+}
+
+object Horario {
+    "14:00 - 15:00"
+    "16:00 - 17:00"
+}
+
+object Parada_1 {
+    "Ubicación: Burgos"
+}
+
+object Parada_2 {
+    "Ubicación: España"
+}
+
+object Conductor_1 {
+    ID: 1234
+    Nombre: David
+}
+
+object Conductor_2 {
+    ID: 1235
+    Nombre: Pepe
+}
+
+object Vehículo_1 {
+    Tipo: Bus
+    Capacidad:15
+    ID: 1
+}
+
+object Flota_1 {
+    Empresa: PEREZ
+}
+
+object Incidencia_1 {
+    Tipo: Accidente
+    Estado: Roto
+    Urgencia: ALta
+}
+
+object Pasajero_1 {
+    Asiento: 2C
+    Nombre: Silvia
+}
+
+
+object Tarifa_1 {
+    Tipo: Diurna 1
+}
+
+
+object Abono_1 {
+    Método: Tarjeta
+}
+
+
+
+Servicio_Diario --> Ruta_1 : "ofrece"
+Ruta_1 --> Parada_1 : "tiene"
+Ruta_1 --> Parada_2 : "tiene"
+Ruta_1 --> Horario : "tiene"
+Conductor_1 --> Ruta_1 : "sigue"
+Conductor_2 --> Ruta_1 : "sigue"
+Conductor_1 --> Vehículo_1 : "conduce"
+Vehículo_1 --> Flota_1 : "usa"
+Vehículo_1 --> Incidencia_1 : "sufre"
+Conductor_2 --> Incidencia_1 : "reporta"
+Incidencia_1 ..> Pasajero_1 : "afecta"
+Pasajero_1 --> Vehículo_1 : "usa"
+Pasajero_1 --> Tarifa_1 : "paga"
+Tarifa_1 --> Abono_1 : "para pagar"
+
+@enduml
