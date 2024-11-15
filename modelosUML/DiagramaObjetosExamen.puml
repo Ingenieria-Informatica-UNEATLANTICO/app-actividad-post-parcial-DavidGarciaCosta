@@ -68,6 +68,7 @@ object Abono_1 {
 
 
 Servicio_Diario --> Ruta_1 : "ofrece"
+Servicio_Diario --> Flota_1: "ofrece"
 Ruta_1 --> Parada_1 : "tiene"
 Ruta_1 --> Parada_2 : "tiene"
 Ruta_1 --> Horario : "tiene"
