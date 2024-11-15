@@ -1,0 +1,13 @@
+@startuml
+class Yo
+
+Yo --> Tiempo : paso
+Yo --> Transporte_Publico : usa
+Transporte_Publico --> Hospital : ir
+Tiempo --> Salud : afecta
+Salud --> Hospital : mala salud
+Tiempo --> Internet : empleo
+Internet --> Repos : uso
+Internet --> Streaming : veo
+
+@enduml
