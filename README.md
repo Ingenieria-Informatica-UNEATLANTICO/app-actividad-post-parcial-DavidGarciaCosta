@@ -1,6 +1,6 @@
-## **Enlaces Relacionados**
+## **EXAMEN DAVID GARCÍA COSTA**
 
-- [**Vista de imagen y codigo**](modelosUML/README.md)  
+- [**Modelo de Dominio**](modelosUML/README.md)  
   
 
 - [**Glosario de Términos**](documents/Glosario.md)  
