@@ -1,0 +1,68 @@
+@startuml
+title Sistema Transporte Público - Modelo Integrado
+
+package "Sistema Transporte Público" {
+    abstract class Usuario {
+    }
+
+    abstract class ElementoTransporte {
+    }
+
+    abstract class ServicioTransporte {
+    }
+
+    abstract class MetodoPago {
+    }
+
+    class Pasajero {
+    }
+
+    class Personal {
+    }
+
+    class Vehiculo {
+    }
+
+    class Ruta {
+    }
+
+    class Tarifa {
+    }
+
+    class Abono {
+    }
+
+    class PlanificacionServicio {
+    }
+
+    class Incidencia {
+    }
+
+    class Horario {
+    }
+
+    class Parada {
+    }
+
+    class Flota {
+    }
+
+    Usuario <|-- Pasajero
+    Usuario <|-- Personal
+    ElementoTransporte <|-- Vehiculo
+    ElementoTransporte <|-- Ruta
+    ServicioTransporte <|-- PlanificacionServicio
+    MetodoPago <|-- Abono
+
+    Pasajero --> MetodoPago : utiliza
+    Personal --> ElementoTransporte : gestiona
+    ElementoTransporte --> ServicioTransporte : forma parte
+    ServicioTransporte --> Tarifa : define
+    ServicioTransporte --> Flota : incluye
+    ServicioTransporte --> Ruta : organiza
+    Ruta --> Parada : incluye
+    Ruta --> Horario : define
+    ElementoTransporte --> Incidencia : puede tener
+    Usuario --> Incidencia : reporta
+}
+@enduml

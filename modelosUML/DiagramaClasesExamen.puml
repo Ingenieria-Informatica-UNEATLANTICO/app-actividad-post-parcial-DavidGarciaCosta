@@ -26,11 +26,11 @@ package "Sistema Transporte Público" {
     class Servicio{
 }
 
-Pasajeros -* Persona
-Conductor -* Persona
+Pasajeros --|> Persona
+Conductor --|> Persona
 Pasajeros --> Tarifas : pagan
 MétodosPago --> Tarifas : se emplean
-Abonos -* MétodosPago
+Abonos --|> MétodosPago
 Conductor --> Vehículo : conduce
 Conductor--> Ruta : sigue
 Vehículo --> Incidencia : sufre
